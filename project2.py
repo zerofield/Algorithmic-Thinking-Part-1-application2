@@ -26,8 +26,6 @@ def bfs_visited(ugraph, start_node):
     
     return visited
 
- 
-
 def cc_visited(ugraph):
     '''
     cc_visited
@@ -46,8 +44,6 @@ def cc_visited(ugraph):
 
 
     return connected_components
-
-
 
 def largest_cc_size(ugraph):
     '''

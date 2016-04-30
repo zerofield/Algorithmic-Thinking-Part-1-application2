@@ -175,8 +175,13 @@ def compare_two_order_function():
 		end_time = time.time()
 		order_time.append(end_time - start_time)
 
-	plt.plot(range(10, 1000, 10), fast_order_time,'r') 
-	plt.plot(range(10, 1000, 10), order_time,'g') 
+	plt.title('Regular vs. fast computation of targeted order')
+	plt.xlabel('Size of UPA graph, m = 5')
+	plt.ylabel('Running time in seconds')
+	line1, = plt.plot(range(10, 1000, 10), fast_order_time,'g') 
+	line2, = plt.plot(range(10, 1000, 10), order_time,'b') 
+	plt.legend((line1, line2), ('fast_targeted_order', 'targeted_order'))
+	
 	plt.show()
 
 def q1():
@@ -196,11 +201,14 @@ def q1():
 	resilience3 = project2.compute_resilience(upa_graph, order_list3)
 	print 'finish graph3'
 	
-	#plt.xlabel('degree')
- 	#plt.ylabel('distribution')
-	plt.plot(resilience1,'b') 
-	plt.plot(resilience2,'g') 
-	plt.plot(resilience3,'r') 
+	plt.title('Comparision of graph resilience for random attack order')
+	plt.xlabel('Number of nodes removed')
+ 	plt.ylabel('Size of largest connected component')
+ 	line1, = plt.plot(resilience1,'b') 
+	line2, =plt.plot(resilience2,'g') 
+	line3, = plt.plot(resilience3,'r') 
+ 
+	plt.legend((line1, line2, line3), ('Computer network', 'ER graph, p = 0.003999', 'UPA graph, m = 3'))
 	plt.show()
 	
 
@@ -222,11 +230,16 @@ def q4():
 	resilience3 = project2.compute_resilience(upa_graph, order_list3)
 	print 'finish graph3'
 	
-	#plt.xlabel('degree')
- 	#plt.ylabel('distribution')
-	plt.plot(resilience1,'b') 
-	plt.plot(resilience2,'g') 
-	plt.plot(resilience3,'r') 
+	plt.xlabel('Number of nodes removed')
+ 	plt.ylabel('Size of largest connected component')
+ 	plt.title('Comparision of graph resilience for targed attack order')
+
+
+	line1, = plt.plot(resilience1,'b') 
+	line2, = plt.plot(resilience2,'g') 
+	line3, = plt.plot(resilience3,'r') 
+	plt.legend((line1, line2, line3), ('Computer network', 'ER graph, p = 0.003999', 'UPA graph, m = 3'))
+	
 	plt.show()
 
 
